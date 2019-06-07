@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-screen-background" translatesAutoresizingMaskIntoConstraints="NO" id="z2U-xP-pFn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-screen-logo" translatesAutoresizingMaskIntoConstraints="NO" id="4rA-YW-Bp4">
+                                <rect key="frame" x="103.5" y="74" width="207" height="207"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4rA-YW-Bp4" secondAttribute="height" multiplier="1:1" id="oCJ-YQ-PVJ"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login-screen-slogan" translatesAutoresizingMaskIntoConstraints="NO" id="Kn0-9D-aY1">
+                                <rect key="frame" x="52" y="301" width="310.5" height="146"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cC-8d-KOY">
+                                <rect key="frame" x="40" y="732" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ibX-Li-4TX"/>
+                                </constraints>
+                                <state key="normal" image="login-screen-facebook-button-login"/>
+                                <connections>
+                                    <action selector="loginFacebook:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fn1-eO-vfa"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Kn0-9D-aY1" firstAttribute="top" secondItem="4rA-YW-Bp4" secondAttribute="bottom" constant="20" id="8Wd-Ms-sfC"/>
+                            <constraint firstItem="4rA-YW-Bp4" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="9Af-2I-5oJ"/>
+                            <constraint firstItem="Kn0-9D-aY1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="FDt-8O-dR2"/>
+                            <constraint firstItem="5cC-8d-KOY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="J1n-7S-sio"/>
+                            <constraint firstItem="Kn0-9D-aY1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="3:4" id="Jbh-vz-ycz"/>
+                            <constraint firstItem="4rA-YW-Bp4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1:2" id="Prj-tG-dYA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5cC-8d-KOY" secondAttribute="trailing" constant="40" id="TBc-VL-Huc"/>
+                            <constraint firstItem="4rA-YW-Bp4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="XPY-Sq-5N2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="z2U-xP-pFn" secondAttribute="trailing" id="c5F-X1-aFG"/>
+                            <constraint firstItem="z2U-xP-pFn" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="gzr-Ri-a9H"/>
+                            <constraint firstItem="z2U-xP-pFn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pae-8y-8ms"/>
+                            <constraint firstAttribute="bottom" secondItem="z2U-xP-pFn" secondAttribute="bottom" id="w8Z-Cm-LSK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5cC-8d-KOY" secondAttribute="bottom" constant="80" id="wXb-11-meO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Main Tabar Controller-->
+        <scene sceneID="RPI-8l-Op3">
+            <objects>
+                <viewController storyboardIdentifier="MainTabarController" id="kmL-JZ-uJ2" customClass="MainTabarController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="omu-Gf-07Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="qh0-Yb-p3D"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idw-Rv-j36" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325" y="78"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="login-screen-background" width="750" height="1334"/>
+        <image name="login-screen-facebook-button-login" width="560" height="90"/>
+        <image name="login-screen-logo" width="292" height="293"/>
+        <image name="login-screen-slogan" width="393" height="146"/>
+    </resources>
+</document>

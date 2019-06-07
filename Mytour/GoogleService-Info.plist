@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>243305165162-e5lat0uc9bknfmn4qllvi1kv9luuaifp.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.243305165162-e5lat0uc9bknfmn4qllvi1kv9luuaifp</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCfZesxsf1_jRzPwPUCgTHWZefUfXDwYi0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>243305165162</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>ledung95d.Mytour</string>
+	<key>PROJECT_ID</key>
+	<string>praticecrashlytics</string>
+	<key>STORAGE_BUCKET</key>
+	<string>praticecrashlytics.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:243305165162:ios:0aba115591690842</string>
+	<key>DATABASE_URL</key>
+	<string>https://praticecrashlytics.firebaseio.com</string>
+</dict>
+</plist>
