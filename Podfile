@@ -6,15 +6,14 @@ target 'Mytour' do
   use_frameworks!
 
   # Pods for Mytour
-
-  target 'MytourTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'MytourUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  # Pods for Facebook
+#  pod 'Bolts'
+#  pod 'FBSDKCoreKit'
+#  pod 'FBSDKLoginKit'
+pod 'FBSDKCoreKit'
+pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit'
 
 end
