@@ -9,13 +9,10 @@ target 'Mytour' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   # Pods for Facebook
-#  pod 'Bolts'
-#  pod 'FBSDKCoreKit'
-#  pod 'FBSDKLoginKit'
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'SDWebImage', '~>3.8'
-pod 'Reusable'
+pod 'Reusable', '~>4.0.2'
 
 end

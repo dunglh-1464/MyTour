@@ -55,7 +55,7 @@ extension TripsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailTourCell", for: indexPath) as! DetailTourCell
         cell.configureData(trips[indexPath.row])
-//        cell.fill(track: tracks[indexPath.row])
+
         return cell
     }
     

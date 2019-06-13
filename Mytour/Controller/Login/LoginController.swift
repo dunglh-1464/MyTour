@@ -24,6 +24,10 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let mainTabBarController = MainTabarViewController(nibName: "MainTabarViewController", bundle: nil)
+        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+            appdelegate.window?.rootViewController = mainTabBarController
+        }
     }
     
     

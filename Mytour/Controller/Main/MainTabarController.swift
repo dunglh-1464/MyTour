@@ -29,7 +29,12 @@ class MainTabarController: NSObject {
     private var listTrip: [InfoTour] = []
     private var categoryArr:  [Int: [InfoTour]] = [
         0: [InfoTour(nameTrip: "Mũi Né", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-            InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6")],
+            InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
+        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
+        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
+        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
+        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
+        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6")],
         1: [InfoTour(nameTrip: "Phú Quốc", imageUrl: "https://r-ec.bstatic.com/images/hotel/max1024x768/137/137579816.jpg", date: "10/6-15/6"),
             InfoTour(nameTrip: "Đà Nẵng", imageUrl: "https://static.mytour.vn/upload_images/Image/Location/29_9_2015/7-du-lich-pho-co-hoi-an-mytour-6.jpg", date: "10/6-15/6")
         ]]
@@ -52,7 +57,7 @@ class MainTabarController: NSObject {
     private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.estimatedRowHeight = 120
+        tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
         tableView.registerCellNib(cellClass: TripsCell.self)
@@ -96,17 +101,11 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return categoryArr[section]?.count ?? 0
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let section = Section(rawValue: indexPath.section) else {return TripsCell()}
-//        switch section {
-//        case .upComing:
-//            return cellForTrips(atIndexpath: indexPath)
-//        case .tookPlace:
-//            return cellForTrips(atIndexpath: indexPath)
-//        }
         return cellForTrips(atIndexpath: indexPath)
     }
     
