@@ -12,17 +12,25 @@ import UIKit
 struct BaseStoryboard {
     enum ViewContollerIdentifier: String {
         case Login = "MainTabarController"
+        case MainTabar = "MainTabarViewController"
     }
     
     static func viewController(_ id: ViewContollerIdentifier) -> UIViewController {
         let storyboard = UIStoryboard.init(id: .LoginStoryboard)
         return storyboard.instantiateViewController(withIdentifier: id.rawValue)
     }
+    
+    static func viewController(mainTabBar : ViewContollerIdentifier) -> UIViewController {
+        let storyboard = UIStoryboard.init(id: .MainTabar)
+        return storyboard.instantiateViewController(withIdentifier: mainTabBar.rawValue)
+    }
+    
 }
 
 extension UIStoryboard {
     enum Id: String {
         case LoginStoryboard = "Login"
+        case MainTabar = "MainTabarViewController"
     }
     
     convenience init(id: Id) {

@@ -10,7 +10,8 @@ import UIKit
 
 class RootMainController: UINavigationController {
     static var sharedInstance: RootMainController = {
-        let instance = RootMainController.init(rootViewController: BaseStoryboard.viewController(.Login))
+        let mainTabBarController = MainTabarViewController(nibName: "MainTabarViewController", bundle: nil)
+        let instance = RootMainController.init(rootViewController: mainTabBarController)
 
         return instance
     }()

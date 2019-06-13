@@ -15,5 +15,7 @@ target 'Mytour' do
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
+pod 'SDWebImage', '~>3.8'
+pod 'Reusable'
 
 end
