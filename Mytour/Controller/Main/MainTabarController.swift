@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
 
 class MainTabarController: NSObject {
     
     // MARK: - ENUM
-    
-    private enum Section: Int {
+    private enum Section: Int  {
         case upComing = 0
         case tookPlace = 1
         
@@ -21,37 +22,65 @@ class MainTabarController: NSObject {
         }
     }
     
+    // MARK: - Properties
+    
     private var tableView = UITableView()
     private var inputTextField = UITextField()
     private var searchTimer: Timer?
     private var currentKeyword: String = ""
-    private var arrTrip = [InfoTour]()
-    private var listTrip: [InfoTour] = []
-    private var categoryArr:  [Int: [InfoTour]] = [
-        0: [InfoTour(nameTrip: "Mũi Né", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-            InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6"),
-        InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6")],
-        1: [InfoTour(nameTrip: "Phú Quốc", imageUrl: "https://r-ec.bstatic.com/images/hotel/max1024x768/137/137579816.jpg", date: "10/6-15/6"),
-            InfoTour(nameTrip: "Đà Nẵng", imageUrl: "https://static.mytour.vn/upload_images/Image/Location/29_9_2015/7-du-lich-pho-co-hoi-an-mytour-6.jpg", date: "10/6-15/6")
-        ]]
+    private var arrTrip = [Trip]()
+    private var listTrip: [Trip] = []
+    private var upComingArr = [Trip]()
+    private var tookPlaceArr = [Trip]()
+    
+    private var trips: [Trip] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override init() {
         super.init()
     }
     
-    convenience init(tableView: UITableView, textField: UITextField, arrTrip: [InfoTour]) {
+    convenience init(tableView: UITableView, textField: UITextField, arrTrip: [Trip]) {
         self.init()
         self.tableView = tableView
         self.setUpTableView()
-        self.setupData()
         self.inputTextField = textField
         self.inputTextField.delegate = self
         self.inputTextField.addTarget(self, action: #selector(textFieldDidEditingChanged(_:)), for: .editingChanged)
+        
+        let db = Firestore.firestore()
+        db.collection("trip").getDocuments() { (querySnapshot, err) in
+            guard let snapshot = querySnapshot else {
+                print("Error fetching documents results: \(err!)")
+                return
+            }
+            
+            let results = snapshot.documents.map { (document) -> Trip in
+                if let trip = Trip(dictionary: document.data(), id: document.documentID) {
+                    return trip
+                } else {
+                    fatalError("Unable to initialize type \(Trip.self) with dictionary \(document.data())")
+                }
+            }
+            self.filterCategoryTrip(trips: results)
+        }
         listTrip = arrTrip
+    }
+    
+    // MARK: - Methods
+    
+    func filterCategoryTrip(trips: [Trip]) {
+        for trip in trips {
+            if String.compareWithTheUpcommingDay(startString: trip.startString) == true {
+                upComingArr.append(trip)
+            } else if String.compareWithTookPlaceDay(startString: trip.startString, endString: trip.endString) == true {
+                tookPlaceArr.append(trip)
+            }
+        }
+        self.tableView.reloadData()
     }
     
     private func setUpTableView() {
@@ -63,16 +92,6 @@ class MainTabarController: NSObject {
         tableView.registerCellNib(cellClass: TripsCell.self)
         
     }
-    
-    private func setupData() {
-        let trip1 = InfoTour(nameTrip: "Mũi Né", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6")
-        let trip2 = InfoTour(nameTrip: "Quy Nhơn  ", imageUrl: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", date: "10/6-15/6")
-        let trip3 = InfoTour(nameTrip: "Phú Quốc", imageUrl: "https://r-ec.bstatic.com/images/hotel/max1024x768/137/137579816.jpg", date: "10/6-15/6")
-        let trip4 = InfoTour(nameTrip: "Đà Nẵng", imageUrl: "https://static.mytour.vn/upload_images/Image/Location/29_9_2015/7-du-lich-pho-co-hoi-an-mytour-6.jpg", date: "10/6-15/6")
-        arrTrip = [trip1, trip2, trip3, trip4]
-        
-    }
-    
     
     @objc private func textFieldDidEditingChanged(_ textField: UITextField) {
         if searchTimer != nil {
@@ -97,15 +116,16 @@ class MainTabarController: NSObject {
     }
 }
 
+// MARK: - Extensions
+
 extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = Section(rawValue: indexPath.section) else {return TripsCell()}
         return cellForTrips(atIndexpath: indexPath)
     }
     
@@ -121,37 +141,40 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return categoryArr.count
+        return 2
     }
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView.init()
+        view.backgroundColor = UIColor.white
+        return view
+    }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
     
-//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let view = UIView.init()
-//        view.backgroundColor = UIColor.clear
-//        return view
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return 10
-//    }
-//
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
-//
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
+    }
     
-//    func getListItem() -> [InfoTour] {
-//        return listTrip
-//    }
+    //        func getListItem() -> [Trip] {
+    //            return listTrip
+    //        }
     
     private func cellForTrips(atIndexpath indexPath: IndexPath) -> TripsCell {
-        let item = categoryArr[indexPath.row]
         let cell = tableView.dequeueReusableCell(type: TripsCell.self, for: indexPath)
-        cell.configureData(item)
+        guard let section = Section(rawValue: indexPath.section) else {return TripsCell()}
+        if indexPath.row == 0 {
+            switch section {
+            case .upComing:
+                cell.configureData(self.upComingArr)
+            case .tookPlace:
+                cell.configureData(self.tookPlaceArr)
+            }
+        }
         return cell
     }
-    
 }
 
 extension MainTabarController: UITextFieldDelegate {

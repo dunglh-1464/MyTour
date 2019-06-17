@@ -21,7 +21,7 @@ class DetailTourCell: UICollectionViewCell,NibReusable {
     
     // MARK: - Properties
     
-    private var tour: InfoTour?
+    private var tour: Trip?
     
     
     override func awakeFromNib() {
@@ -30,13 +30,11 @@ class DetailTourCell: UICollectionViewCell,NibReusable {
     }
     
     
-    func configureData(_ data: InfoTour) {
-        self.imgThumbnail.sd_setImage(with: URL(string: data.imageUrl), placeholderImage: nil)
+    func configureData(_ data: Trip) {
+        self.imgThumbnail.sd_setImage(with: URL(string: data.thumbnail), placeholderImage: nil)
         self.tour = data
-        self.nameTrip.text = data.nameTrip
-        self.dateLabel.text = data.date
+        self.nameTrip.text = data.name
+        self.dateLabel.text = data.startString
     }
     
-    
-
 }
