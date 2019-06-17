@@ -14,7 +14,7 @@ class TripsCell: UITableViewCell {
     @IBOutlet private weak var itemCollectionView: UICollectionView!
 
     
-    var trips =  [InfoTour]()
+    var trips =  [Trip]()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,10 +36,11 @@ class TripsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configureData(_ data: [InfoTour]?) {
+    func configureData(_ data: [Trip]?) {
         if let data = data {
         
             self.trips = data
+            self.itemCollectionView.reloadData()
         }
     }
     

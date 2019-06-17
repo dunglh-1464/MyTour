@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseCore
+import FirebaseFirestore
 
 class MainTabarViewController: UIViewController {
     
@@ -16,13 +18,11 @@ class MainTabarViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var viewInputSearch: UIView!
     
-   
     // MARK: - PROPERTY
     
     private var controller: MainTabarController?
-    private var listTrip: [InfoTour] = []
-    var arrTrip: [InfoTour] = []
-    
+    private var listTrip: [Trip] = []
+    var arrTrip: [Trip] = []
     
     
     // MARK: - Methods
@@ -31,12 +31,16 @@ class MainTabarViewController: UIViewController {
         return UINib.init(nibName: String(describing: MainTabarViewController.self), bundle: nil)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         controller = MainTabarController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
         hideKeyboard()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -74,7 +78,6 @@ class MainTabarViewController: UIViewController {
 
 
 extension UIViewController {
-    
     var navigationBar: UINavigationBar? {
         return navigationController?.navigationBar
     }

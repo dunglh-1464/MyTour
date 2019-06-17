@@ -21,7 +21,7 @@
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="c2G-Ng-Gc4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="200.5"/>
-                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="200" id="BLQ-PN-4Bd"/>
                         </constraints>
@@ -33,7 +33,7 @@
                         </collectionViewFlowLayout>
                     </collectionView>
                 </subviews>
-                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="c2G-Ng-Gc4" secondAttribute="bottom" id="FHS-uF-gJz"/>
                     <constraint firstItem="c2G-Ng-Gc4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Z0m-kf-Rru"/>
@@ -41,7 +41,7 @@
                     <constraint firstAttribute="trailing" secondItem="c2G-Ng-Gc4" secondAttribute="trailing" id="zjl-70-ya9"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="itemCollectionView" destination="c2G-Ng-Gc4" id="v6o-bv-yMv"/>
