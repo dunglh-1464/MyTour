@@ -30,6 +30,8 @@ class MainTabarController: NSObject {
     private var currentKeyword: String = ""
     private var arrTrip = [Trip]()
     private var listTrip: [Trip] = []
+    private var upComingArr = [Trip]()
+    private var tookPlaceArr = [Trip]()
     
     private var trips: [Trip] = [] {
         didSet {
@@ -63,9 +65,22 @@ class MainTabarController: NSObject {
                     fatalError("Unable to initialize type \(Trip.self) with dictionary \(document.data())")
                 }
             }
-            self.trips = results
+            self.filterCategoryTrip(trips: results)
         }
         listTrip = arrTrip
+    }
+    
+    // MARK: - Methods
+    
+    func filterCategoryTrip(trips: [Trip]) {
+        for trip in trips {
+            if String.compareWithTheUpcommingDay(startString: trip.startString) == true {
+                upComingArr.append(trip)
+            } else if String.compareWithTookPlaceDay(startString: trip.startString, endString: trip.endString) == true {
+                tookPlaceArr.append(trip)
+            }
+        }
+        self.tableView.reloadData()
     }
     
     private func setUpTableView() {
@@ -101,6 +116,8 @@ class MainTabarController: NSObject {
     }
 }
 
+// MARK: - Extensions
+
 extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,7 +126,6 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let section = Section(rawValue: indexPath.section) else {return TripsCell()}
         return cellForTrips(atIndexpath: indexPath)
     }
     
@@ -125,7 +141,7 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return trips.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -138,22 +154,30 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
         return 10
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
-    
-    
-//        func getListItem() -> [Trip] {
-//            return listTrip
-//        }
-    
-    private func cellForTrips(atIndexpath indexPath: IndexPath) -> TripsCell {
-//        let item = trips[indexPath.row]
-        let cell = tableView.dequeueReusableCell(type: TripsCell.self, for: indexPath)
-        cell.configureData(self.trips)
-        return cell
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 30
     }
     
+    //        func getListItem() -> [Trip] {
+    //            return listTrip
+    //        }
+    
+    private func cellForTrips(atIndexpath indexPath: IndexPath) -> TripsCell {
+        //        let item = trips[indexPath.row]
+        let cell = tableView.dequeueReusableCell(type: TripsCell.self, for: indexPath)
+        guard let section = Section(rawValue: indexPath.section) else {return TripsCell()}
+        switch section {
+        case .upComing:
+            if indexPath.row == 0 {
+                cell.configureData(self.upComingArr)
+            }
+        case .tookPlace:
+            if indexPath.row == 0 {
+                cell.configureData(self.tookPlaceArr)
+            }
+        }
+        return cell
+    }
 }
 
 extension MainTabarController: UITextFieldDelegate {

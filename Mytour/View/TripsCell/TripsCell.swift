@@ -40,6 +40,7 @@ class TripsCell: UITableViewCell {
         if let data = data {
         
             self.trips = data
+            self.itemCollectionView.reloadData()
         }
     }
     

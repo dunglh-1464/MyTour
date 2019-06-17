@@ -24,11 +24,11 @@ class Trip {
         self.id = id
         
         let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy-MM-dd"
+        dateFormater.dateFormat = "yyyy-dd-MM"
         self.startString = dateFormater.string(from: start.dateValue())
         print("StartDate: \(startString)")
-        dateFormater.timeStyle = .none
-        dateFormater.dateStyle = .medium
+//        dateFormater.timeStyle = .none
+//        dateFormater.dateStyle = .medium
         // dateFormater.locale = Locale(identifier: "vi")
         self.endString = dateFormater.string(from: end.dateValue())
         
