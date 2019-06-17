@@ -8,6 +8,7 @@ target 'Mytour' do
   # Pods for Mytour
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/Firestore'
   # Pods for Facebook
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
