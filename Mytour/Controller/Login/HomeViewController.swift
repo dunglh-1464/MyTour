@@ -1,16 +1,14 @@
 //
-//  MainTabarViewController.swift
+//  HomeViewController.swift
 //  Mytour
 //
-//  Created by nguyen.trong.hieu on 6/13/19.
+//  Created by nguyen.trong.hieu on 6/19/19.
 //  Copyright © 2019 le.huu.dung. All rights reserved.
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseFirestore
 
-class MainTabarViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     // MARK: - OUTLET
     
@@ -28,7 +26,7 @@ class MainTabarViewController: UIViewController {
     // MARK: - Methods
     
     public func nib() -> UINib? {
-        return UINib.init(nibName: String(describing: MainTabarViewController.self), bundle: nil)
+        return UINib.init(nibName: String(describing: HomeViewController.self), bundle: nil)
     }
     
     
@@ -76,9 +74,14 @@ class MainTabarViewController: UIViewController {
     }
 }
 
-
 extension UIViewController {
     var navigationBar: UINavigationBar? {
         return navigationController?.navigationBar
     }
 }
+
+
+
+
+
+

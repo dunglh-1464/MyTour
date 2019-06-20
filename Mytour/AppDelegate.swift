@@ -17,7 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
+        let accessToken = UserDefaults.standard.object(forKey: "token")
+        if accessToken != nil {
+            self.window?.rootViewController = RootMainController.sharedInstance
+        }
+        
         FirebaseApp.configure()
         ApplicationDelegate
             .shared

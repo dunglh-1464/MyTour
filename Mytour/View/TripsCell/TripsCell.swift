@@ -59,10 +59,9 @@ extension TripsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
 
         return cell
     }
-    
+ 
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        if let didSelected = didSelected {
-//            didSelected(tracks[indexPath.row])
-//        }
+//        <#code#>
 //    }
+    
 }

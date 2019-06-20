@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import FBSDKCoreKit
 
 class LoginController: UIViewController {
     
@@ -24,10 +25,10 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let mainTabBarController = MainTabarViewController(nibName: "MainTabarViewController", bundle: nil)
-        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
-            appdelegate.window?.rootViewController = mainTabBarController
-        }
+//        let mainTabBarController = MainTabarViewController(nibName: "MainTabarViewController", bundle: nil)
+//        if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
+//            appdelegate.window?.rootViewController = mainTabBarController
+//        }
     }
     
     
@@ -43,11 +44,13 @@ class LoginController: UIViewController {
                 return
             }
             guard let accessToken = AccessToken.current else {
-                AlertManager
-                    .messeageError(title: "",
-                                   message: TextLogin.failAcessToken,
-                                   okButton: TextLogin.ok,
-                                   parentController: self)
+//                AlertManager
+//                    .messeageError(title: "",
+//                                   message: TextLogin.failAcessToken,
+//                                   okButton: TextLogin.ok,
+//                                   parentController: self)
+                print(TextLogin.failAcessToken)
+                self.navigationController?.popViewController(animated: true)
                 return
             }
             let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
@@ -67,6 +70,7 @@ class LoginController: UIViewController {
                                            okButton: TextLogin.addNow,
                                            cancelButton: TextLogin.addLater,
                                            parentController: self, handleOk: {
+                                            UserDefaults.standard.set(accessToken.tokenString, forKey: "token")
                                             if let appdelegate = UIApplication.shared.delegate as? AppDelegate {
                                                 appdelegate.window?.rootViewController = RootMainController.sharedInstance
                                             }

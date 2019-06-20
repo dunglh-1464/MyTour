@@ -62,7 +62,148 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="643" y="19"/>
+            <point key="canvasLocation" x="706" y="23"/>
+        </scene>
+        <!--Inbox-->
+        <scene sceneID="bta-IQ-GYv">
+            <objects>
+                <viewController title="Inbox" id="SLC-Hx-qtD" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WJD-bZ-mXh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.99022966623306274" green="0.87873882055282593" blue="0.88085800409317017" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="oNc-0u-dAW"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="1" title="INBOX" image="tabbar-inbox-un-selected" badgeValue="9" selectedImage="tabbar-inbox-un-selected" id="26K-Ym-Qld"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIk-yo-pfo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3545" y="-767"/>
+        </scene>
+        <!--Notification-->
+        <scene sceneID="aEO-ei-t7b">
+            <objects>
+                <viewController title="Notification" id="hil-G4-Uap" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jk7-0P-4BW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="xVK-c4-nq7"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="3" title="NOTIFICATION" image="tabbar-noti-un-selected" badgeValue="8" selectedImage="tabbar-noti-un-selected" id="s4K-Tp-9Ke"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mHK-9s-rcr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="942"/>
+        </scene>
+        <!--HOME-->
+        <scene sceneID="5Pe-E8-GUs">
+            <objects>
+                <viewController title="HOME" id="0au-aR-CMJ" customClass="ViewController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bzA-e2-QYX">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="91O-9g-lLf"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="HOME" image="tabbar-home-selected" selectedImage="tabbar-home-selected" id="Ggu-Vi-hxD">
+                        <inset key="largeContentSizeImageInsets" minX="1" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODr-bA-tmq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2390" y="-767"/>
+        </scene>
+        <!--Trips-->
+        <scene sceneID="yH3-Zp-jbC">
+            <objects>
+                <viewController title="Trips" id="PoU-gQ-c12" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U5B-3a-J29">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.4815131426" green="0.853592515" blue="0.3968165219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="Nxj-Fq-Ztf"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="2" title="TRIPS" image="tabbar-trips-un-selected" selectedImage="tabbar-trips-un-selected" id="H9c-Z5-QU2"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lw3-5e-X3Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1590" y="942"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="e5B-r1-R88">
+            <objects>
+                <viewController title="Profile" id="UAd-BG-0sZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GWD-ti-u9o">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Gc-KY-deH" customClass="View" customModule="Mytour" customModuleProvider="target">
+                                <rect key="frame" x="16" y="60" width="382" height="59.5"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rYp-zR-mVD">
+                                        <rect key="frame" x="8" y="10" width="364" height="39.5"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" red="0.95038026571273804" green="0.96472746133804321" blue="0.96893161535263062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="rYp-zR-mVD" secondAttribute="bottom" constant="10" id="cL2-5D-mKe"/>
+                                    <constraint firstAttribute="trailing" secondItem="rYp-zR-mVD" secondAttribute="trailing" constant="10" id="eLx-l6-0kp"/>
+                                    <constraint firstItem="rYp-zR-mVD" firstAttribute="top" secondItem="9Gc-KY-deH" secondAttribute="top" constant="10" id="iUF-sa-XNZ"/>
+                                    <constraint firstItem="rYp-zR-mVD" firstAttribute="leading" secondItem="9Gc-KY-deH" secondAttribute="leading" constant="8" id="uwd-wP-GJg"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.85489159822463989" green="0.89409548044204712" blue="0.90281599760055542" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99953407049999998" green="0.98835557699999999" blue="0.47265523669999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9Gc-KY-deH" firstAttribute="leading" secondItem="XAF-OC-JJO" secondAttribute="leading" constant="16" id="2Cf-nR-9Sq"/>
+                            <constraint firstItem="9Gc-KY-deH" firstAttribute="top" secondItem="XAF-OC-JJO" secondAttribute="top" constant="16" id="Ygo-dD-yyU"/>
+                            <constraint firstItem="9Gc-KY-deH" firstAttribute="trailing" secondItem="XAF-OC-JJO" secondAttribute="trailing" constant="-16" id="mUX-15-w6n"/>
+                            <constraint firstItem="9Gc-KY-deH" firstAttribute="height" secondItem="GWD-ti-u9o" secondAttribute="height" multiplier="1/15" id="xx3-C2-awy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XAF-OC-JJO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="4" title="PROFILE" image="tabbar-profile-un-selected" selectedImage="tabbar-profile-un-selected" id="3Nz-41-xcw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="87d-Ll-oAL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3000" y="196"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="jQw-rD-cvo">
+            <objects>
+                <tabBarController storyboardIdentifier="TabViewController" id="Mgs-yu-oU4" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KQY-iq-Mdn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.37900558114051819" green="0.37978041172027588" blue="0.99813359975814819" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="0au-aR-CMJ" kind="relationship" relationship="viewControllers" id="yYn-ad-vx4"/>
+                        <segue destination="SLC-Hx-qtD" kind="relationship" relationship="viewControllers" id="LNv-dN-36W"/>
+                        <segue destination="PoU-gQ-c12" kind="relationship" relationship="viewControllers" id="zFx-tf-Z7f"/>
+                        <segue destination="hil-G4-Uap" kind="relationship" relationship="viewControllers" id="fyH-hf-Qs0"/>
+                        <segue destination="UAd-BG-0sZ" kind="relationship" relationship="viewControllers" id="Ws9-Wo-9TU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XfB-lX-mSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1591" y="23"/>
         </scene>
     </scenes>
     <resources>
@@ -70,5 +211,10 @@
         <image name="login-screen-facebook-button-login" width="560" height="90"/>
         <image name="login-screen-logo" width="292" height="293"/>
         <image name="login-screen-slogan" width="393" height="146"/>
+        <image name="tabbar-home-selected" width="58" height="50"/>
+        <image name="tabbar-inbox-un-selected" width="44" height="43"/>
+        <image name="tabbar-noti-un-selected" width="21" height="24"/>
+        <image name="tabbar-profile-un-selected" width="23.5" height="24"/>
+        <image name="tabbar-trips-un-selected" width="24" height="24"/>
     </resources>
 </document>
