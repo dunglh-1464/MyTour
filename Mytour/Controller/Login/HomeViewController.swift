@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     var arrTrip: [Trip] = []
     
     
+    
     // MARK: - Methods
     
     public func nib() -> UINib? {
@@ -35,6 +36,12 @@ class HomeViewController: UIViewController {
         setupViews()
         controller = MainTabarController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
         hideKeyboard()
+        controller?.clickDetail = {(detailTrip: Trip) in
+            print("detailTrip")
+            let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+            let detailController = storyBoard.instantiateViewController(withIdentifier: "ViewController_2") as! ViewController_2
+            self.navigationController?.pushViewController(detailController, animated: true)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

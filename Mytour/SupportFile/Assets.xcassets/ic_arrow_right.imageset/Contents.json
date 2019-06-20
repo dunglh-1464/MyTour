@@ -2,12 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "tabbar-noti-un-selected@2x-1.png",
+      "filename" : "ic_arrow_right@2x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "tabbar-noti-un-selected@2x-2.png",
+      "filename" : "ic_arrow_right@2x-1.png",
       "scale" : "2x"
     },
     {

@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseFirestore
+import SVProgressHUD
 
 class MainTabarController: NSObject {
     
@@ -39,6 +40,8 @@ class MainTabarController: NSObject {
         }
     }
     
+    var clickDetail: ((_ detailTrip: Trip) -> Void)?
+    
     override init() {
         super.init()
     }
@@ -50,7 +53,7 @@ class MainTabarController: NSObject {
         self.inputTextField = textField
         self.inputTextField.delegate = self
         self.inputTextField.addTarget(self, action: #selector(textFieldDidEditingChanged(_:)), for: .editingChanged)
-        
+        SVProgressHUD.show()
         let db = Firestore.firestore()
         db.collection("trip").getDocuments() { (querySnapshot, err) in
             guard let snapshot = querySnapshot else {
@@ -66,6 +69,7 @@ class MainTabarController: NSObject {
                 }
             }
             self.filterCategoryTrip(trips: results)
+            SVProgressHUD.dismiss()
         }
         listTrip = arrTrip
     }
@@ -171,6 +175,11 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
                 cell.configureData(self.upComingArr)
             case .tookPlace:
                 cell.configureData(self.tookPlaceArr)
+            }
+        }
+        cell.detailTrip = {(tripDetail)in
+            if self.clickDetail != nil {
+                self.clickDetail!(tripDetail)
             }
         }
         return cell

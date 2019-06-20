@@ -15,6 +15,7 @@ class TripsCell: UITableViewCell {
 
     
     var trips =  [Trip]()
+    var detailTrip: ((_ trip: Trip) -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -60,8 +61,14 @@ extension TripsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICol
         return cell
     }
  
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+//        let detailController = storyBoard.instantiateViewController(withIdentifier: "ViewController_2") as? ViewController_2
+        if detailTrip != nil {
+            detailTrip!(trips[indexPath.row])
+        }
+    
+        
+    }
     
 }

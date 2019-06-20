@@ -15,5 +15,6 @@ pod 'FBSDKLoginKit'
 pod 'FBSDKShareKit'
 pod 'SDWebImage', '~>3.8'
 pod 'Reusable', '~>4.0.2'
+pod 'SVProgressHUD'
 
 end
