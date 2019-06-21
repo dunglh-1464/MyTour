@@ -1,16 +1,14 @@
 //
-//  MainTabarViewController.swift
+//  HomeViewController.swift
 //  Mytour
 //
-//  Created by nguyen.trong.hieu on 6/13/19.
+//  Created by nguyen.trong.hieu on 6/19/19.
 //  Copyright © 2019 le.huu.dung. All rights reserved.
 //
 
 import UIKit
-import FirebaseCore
-import FirebaseFirestore
 
-class MainTabarViewController: UIViewController {
+class HomeViewController: UIViewController {
     
     // MARK: - OUTLET
     
@@ -20,23 +18,29 @@ class MainTabarViewController: UIViewController {
     
     // MARK: - PROPERTY
     
-    private var controller: MainTabarController?
+    private var controller: HomeController?
     private var listTrip: [Trip] = []
     var arrTrip: [Trip] = []
+    
     
     
     // MARK: - Methods
     
     public func nib() -> UINib? {
-        return UINib.init(nibName: String(describing: MainTabarViewController.self), bundle: nil)
+        return UINib.init(nibName: String(describing: HomeViewController.self), bundle: nil)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.delegate = self
         setupViews()
-        controller = MainTabarController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
+        controller = HomeController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
         hideKeyboard()
+        controller?.clickDetail = {(detailTrip: Trip) in
+            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.tabbarCustom?.selectedIndex = 2
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,9 +80,18 @@ class MainTabarViewController: UIViewController {
     }
 }
 
-
 extension UIViewController {
     var navigationBar: UINavigationBar? {
         return navigationController?.navigationBar
+    }
+}
+
+extension HomeViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // im my example the desired view controller is the second one
+        // it might be different in your case...
+        let secondVC = tabBarController.viewControllers?[3] as! UINavigationController
+        secondVC.popToRootViewController(animated: false)
     }
 }

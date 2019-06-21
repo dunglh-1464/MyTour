@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TripDetailViewController" customModule="Mytour" customModuleProvider="target">
+            <connections>
+                <outlet property="imageView" destination="COn-2Q-MFO" id="WkS-gD-n2L"/>
+                <outlet property="tableView" destination="BWG-oX-rVQ" id="HiH-k1-AN7"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Trip" translatesAutoresizingMaskIntoConstraints="NO" id="COn-2Q-MFO">
+                    <rect key="frame" x="0.0" y="66" width="375" height="222.5"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MWo-2J-Cmu">
+                    <rect key="frame" x="0.0" y="288.5" width="375" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="kpA-pO-ED1"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BWG-oX-rVQ">
+                    <rect key="frame" x="0.0" y="289.5" width="375" height="377.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="heK-0D-8ed"/>
+                        <outlet property="delegate" destination="-1" id="S3o-3M-beQ"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="COn-2Q-MFO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="66" id="2kN-IF-aoL"/>
+                <constraint firstItem="BWG-oX-rVQ" firstAttribute="top" secondItem="MWo-2J-Cmu" secondAttribute="bottom" id="3UK-ja-uHE"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="BWG-oX-rVQ" secondAttribute="bottom" id="4mx-uR-LRP"/>
+                <constraint firstItem="COn-2Q-MFO" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1/3" id="9w9-jU-T9k"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="COn-2Q-MFO" secondAttribute="trailing" id="HYo-E5-ejY"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="MWo-2J-Cmu" secondAttribute="trailing" id="Msc-Ei-cKG"/>
+                <constraint firstItem="MWo-2J-Cmu" firstAttribute="top" secondItem="COn-2Q-MFO" secondAttribute="bottom" id="Zdr-oL-tzG"/>
+                <constraint firstItem="MWo-2J-Cmu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="g6i-Ii-nzx"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="BWG-oX-rVQ" secondAttribute="trailing" id="rum-hj-y5z"/>
+                <constraint firstItem="BWG-oX-rVQ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="uDK-Mw-O1u"/>
+                <constraint firstItem="COn-2Q-MFO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="zrn-fr-Ik4"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Trip" width="437" height="293"/>
+    </resources>
+</document>
