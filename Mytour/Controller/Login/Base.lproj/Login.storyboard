@@ -99,7 +99,7 @@
         <!--HOME-->
         <scene sceneID="5Pe-E8-GUs">
             <objects>
-                <viewController title="HOME" id="0au-aR-CMJ" customClass="ViewController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="HOME" id="0au-aR-CMJ" customClass="HomeTabbarViewController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzA-e2-QYX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +115,7 @@
         <!--Trips-->
         <scene sceneID="yH3-Zp-jbC">
             <objects>
-                <viewController storyboardIdentifier="ViewController_2" title="Trips" id="PoU-gQ-c12" customClass="ViewController_2" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TripDetailTabbarViewController" title="Trips" id="PoU-gQ-c12" customClass="TripDetailTabbarViewController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U5B-3a-J29">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -181,10 +181,10 @@
             </objects>
             <point key="canvasLocation" x="3000" y="196"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Trip Tabbar Controller-->
         <scene sceneID="jQw-rD-cvo">
             <objects>
-                <tabBarController storyboardIdentifier="TabViewController" id="Mgs-yu-oU4" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabViewController" id="Mgs-yu-oU4" customClass="TripTabbarController" customModule="Mytour" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KQY-iq-Mdn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

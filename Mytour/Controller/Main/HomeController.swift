@@ -11,7 +11,7 @@ import FirebaseCore
 import FirebaseFirestore
 import SVProgressHUD
 
-class MainTabarController: NSObject {
+class HomeController: NSObject {
     
     // MARK: - ENUM
     private enum Section: Int  {
@@ -93,7 +93,7 @@ class MainTabarController: NSObject {
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
-        tableView.registerCellNib(cellClass: TripsCell.self)
+        tableView.registerCellNib(cellClass: CollectionViewTripCell.self)
         
     }
     
@@ -122,7 +122,7 @@ class MainTabarController: NSObject {
 
 // MARK: - Extensions
 
-extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
+extension HomeController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -166,9 +166,9 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     //            return listTrip
     //        }
     
-    private func cellForTrips(atIndexpath indexPath: IndexPath) -> TripsCell {
-        let cell = tableView.dequeueReusableCell(type: TripsCell.self, for: indexPath)
-        guard let section = Section(rawValue: indexPath.section) else {return TripsCell()}
+    private func cellForTrips(atIndexpath indexPath: IndexPath) -> CollectionViewTripCell {
+        let cell = tableView.dequeueReusableCell(type: CollectionViewTripCell.self, for: indexPath)
+        guard let section = Section(rawValue: indexPath.section) else {return CollectionViewTripCell()}
         if indexPath.row == 0 {
             switch section {
             case .upComing:
@@ -186,7 +186,7 @@ extension MainTabarController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension MainTabarController: UITextFieldDelegate {
+extension HomeController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let keyword = textField.text {
             searchTimer?.invalidate()

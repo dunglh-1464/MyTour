@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     // MARK: - PROPERTY
     
-    private var controller: MainTabarController?
+    private var controller: HomeController?
     private var listTrip: [Trip] = []
     var arrTrip: [Trip] = []
     
@@ -33,13 +33,14 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarController?.delegate = self
         setupViews()
-        controller = MainTabarController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
+        controller = HomeController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
         hideKeyboard()
         controller?.clickDetail = {(detailTrip: Trip) in
             print("detailTrip")
             let storyBoard = UIStoryboard(name: "Login", bundle: nil)
-            let detailController = storyBoard.instantiateViewController(withIdentifier: "ViewController_2") as! ViewController_2
+            let detailController = storyBoard.instantiateViewController(withIdentifier: "TripDetailTabbarViewController") as! TripDetailTabbarViewController
             self.navigationController?.pushViewController(detailController, animated: true)
         }
     }
@@ -87,8 +88,12 @@ extension UIViewController {
     }
 }
 
-
-
-
-
-
+extension HomeViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        // im my example the desired view controller is the second one
+        // it might be different in your case...
+        let secondVC = tabBarController.viewControllers?[3] as! UINavigationController
+        secondVC.popToRootViewController(animated: false)
+    }
+}

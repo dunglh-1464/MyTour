@@ -1,21 +1,20 @@
 //
-//  ViewController 2.swift
+//  ViewController.swift
 //  Mytour
 //
-//  Created by nguyen.trong.hieu on 6/20/19.
+//  Created by nguyen.trong.hieu on 6/19/19.
 //  Copyright © 2019 le.huu.dung. All rights reserved.
 //
 
 import UIKit
 
-class ViewController_2: UIViewController {
+class HomeTabbarViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        let controller = TripDetailViewController(nibName: "TripDetailViewController", bundle: nil)
+        let controller = HomeViewController(nibName: "HomeViewController", bundle: nil)
         controller.view.frame = self.view.frame
         self.view.addSubview(controller.view)
         self.addChild(controller)

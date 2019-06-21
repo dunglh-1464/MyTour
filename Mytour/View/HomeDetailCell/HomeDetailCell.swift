@@ -10,7 +10,7 @@ import UIKit
 import Reusable
 import SDWebImage
 
-class DetailTourCell: UICollectionViewCell,NibReusable {
+class HomeDetailCell: UICollectionViewCell,NibReusable {
     
     // MARK: - OUTLET
 

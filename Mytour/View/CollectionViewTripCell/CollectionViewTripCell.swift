@@ -9,7 +9,7 @@
 import UIKit
 import Reusable
 
-class TripsCell: UITableViewCell {
+class CollectionViewTripCell: UITableViewCell {
     
     @IBOutlet private weak var itemCollectionView: UICollectionView!
 
@@ -25,7 +25,7 @@ class TripsCell: UITableViewCell {
     }
     
     func configCell()  {
-        itemCollectionView.register(cellType: DetailTourCell.self)
+        itemCollectionView.register(cellType: HomeDetailCell.self)
         itemCollectionView.delegate = self
         itemCollectionView.dataSource = self
         itemCollectionView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
@@ -49,13 +49,13 @@ class TripsCell: UITableViewCell {
 
 // MARK: COLLECTION VIEW
 
-extension TripsCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension CollectionViewTripCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return trips.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailTourCell", for: indexPath) as! DetailTourCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HomeDetailCell", for: indexPath) as! HomeDetailCell
         cell.configureData(trips[indexPath.row])
 
         return cell
