@@ -70,6 +70,8 @@ private extension TripDetailViewController {
     }
     
     @objc func backAction() {
+//        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.tabbarCustom?.selectedIndex = 0
         self.navigationController?.popViewController(animated: true)
     }
     

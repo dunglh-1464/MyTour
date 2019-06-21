@@ -14,7 +14,7 @@ import FBSDKCoreKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var tabbarCustom: TripTabbarController?
+//    var tabbarCustom: TripTabbarController?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -30,14 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .shared
             .application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        let mainStoryboard = UIStoryboard(name: "Login" , bundle: nil)
-        tabbarCustom = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TripTabbarController
-        UIView.transition(with: window!, duration: 0.3, options: .transitionCrossDissolve, animations: {
-            self.window?.rootViewController = self.tabbarCustom
-        }, completion: { completed in
-            // maybe do something here
-        })
-        window!.makeKeyAndVisible()
+//        let mainStoryboard = UIStoryboard(name: "Login" , bundle: nil)
+//        tabbarCustom = mainStoryboard.instantiateViewController(withIdentifier: "TabViewController") as? TripTabbarController
+//        UIView.transition(with: window!, duration: 0.3, options: .transitionCrossDissolve, animations: {
+//            self.window?.rootViewController = self.tabbarCustom
+//        }, completion: { completed in
+//            // maybe do something here
+//        })
+//        window!.makeKeyAndVisible()
         return true
     }
     
