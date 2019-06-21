@@ -203,7 +203,7 @@
 				6FEB88B522AA13E8003BA1D7 /* Login */,
 				BAF300BC22BC74A700EC550C /* TabbarViewController */,
 				BAF300BD22BC74D600EC550C /* HomeView */,
-				BA41870222BB5EB3005FC817 /* Trips Detail */,
+				BA41870222BB5EB3005FC817 /* TripDetailView */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,13 +240,13 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		BA41870222BB5EB3005FC817 /* Trips Detail */ = {
+		BA41870222BB5EB3005FC817 /* TripDetailView */ = {
 			isa = PBXGroup;
 			children = (
 				BA41870322BB5EE4005FC817 /* TripDetailViewController.swift */,
 				BA41870422BB5EE4005FC817 /* TripDetailViewController.xib */,
 			);
-			path = "Trips Detail";
+			path = TripDetailView;
 			sourceTree = "<group>";
 		};
 		BA41870722BB653E005FC817 /* TripDetailCell */ = {
