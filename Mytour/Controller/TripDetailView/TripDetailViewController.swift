@@ -123,7 +123,7 @@ private extension TripDetailViewController {
          let subdDetail20 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Quãng đường", title2: "5000 Km")
          let subdDetail21 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Quãng đường", title2: "6000 Km")
          let subdDetail22 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Quãng đường", title2: "7000 Km")
-         let subdDetail23 = DetailTrip(thumbnail: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg", title1: "Quãng đường", title2: "8000 Km")
+         let subdDetail23 = DetailTrip(thumbnail: "https://www.flightnetwork.com/worlds-best-beaches/wp-content/uploads/2018/11/header-city-beach50.jpg ", title1: "Quãng đường", title2: "8000 Km")
         arrSub = [subDetail1, subDetail2, subDetail3, subDetail4, subDetail5, subdDetail6, subdDetail7, subdDetail8, subdDetail9, subdDetail10, subdDetail11, subdDetail12,subdDetail13 ,subdDetail14 ,subdDetail15,subdDetail16 ,subdDetail17 ,subdDetail18,subdDetail19 ,subdDetail20 ,subdDetail21 ,subdDetail22 ,subdDetail23]
     }
 }
