@@ -38,8 +38,11 @@ class HomeViewController: UIViewController {
         controller = HomeController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
         hideKeyboard()
         controller?.clickDetail = {(detailTrip: Trip) in
-            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-            appDelegate.tabbarCustom?.selectedIndex = 2
+//            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//            appDelegate.tabbarCustom?.selectedIndex = 2
+            let sb = UIStoryboard(name: "Login", bundle: nil)
+            let tripDetailVC = sb.instantiateViewController(withIdentifier: "TripDetailTabbarViewController") as! TripDetailTabbarViewController
+            self.navigationController?.pushViewController(tripDetailVC, animated: true)
         }
     }
     

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import ParallaxHeader
+
+
 
 class TripDetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var imageView: UIImageView!
+    weak var headerImageView: UIView?
     
     // MARK: - Properties
     var navBar : UINavigationBar?
@@ -42,6 +45,19 @@ private extension TripDetailViewController {
         setupData()
         setUpTableView()
         setupNav()
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "Trip")
+        imageView.contentMode = .scaleAspectFill
+        
+        headerImageView = imageView
+        
+        tableView.parallaxHeader.view = imageView
+        tableView.parallaxHeader.height = 300
+        tableView.parallaxHeader.minimumHeight = 20
+        tableView.parallaxHeader.mode = .fill
+        tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
+            print(parallaxHeader.progress)
+        }
     }
     
     func setupNav()  {
@@ -70,6 +86,8 @@ private extension TripDetailViewController {
     }
     
     @objc func backAction() {
+//        let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.tabbarCustom?.selectedIndex = 0
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -83,13 +101,30 @@ private extension TripDetailViewController {
     }
     
     private func setupData() {
-        let subDetail1 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Người tạo chuyến đi", title2: "Nguyễn Văn Tuấn")
-        let subDetail2 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Chi phí dự kiến", title2: "900.000 VNĐ")
-        let subDetail3 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Chi phí thực tế", title2: "1.000.000 VNĐ")
-        let subDetail4 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710272210625200.jpg", title1: "Phương tiện", title2: "Xe máy,xe đạp,ô tô")
-        let subDetail5 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710272210625200.jpg", title1: "Thành viên", title2: "20 người")
-        let subdDetail6 = DetailTrip(thumbnail: "https://dev-img.sportsbull.jp/banners/img2019030710254879793300.jpg", title1: "Quãng đường", title2: "600 Km")
-        arrSub = [subDetail1, subDetail2, subDetail3, subDetail4, subDetail5, subdDetail6]
+        let subDetail1 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Người tạo chuyến đi", title2: "Nguyễn Văn Tuấn")
+        let subDetail2 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Chi phí dự kiến", title2: "900.000 VNĐ")
+        let subDetail3 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Chi phí thực tế", title2: "1.000.000 VNĐ")
+        let subDetail4 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Phương tiện", title2: "Xe máy,xe đạp,ô tô")
+        let subDetail5 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Thành viên", title2: "20 người")
+        let subdDetail6 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "600 Km")
+         let subdDetail7 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Trạng thái chuyến đi", title2: "Công Khai")
+         let subdDetail8 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Điểm đầu", title2: "KeangNam Phạm Hùng")
+         let subdDetail9 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Giờ xuất phát", title2: "28/6/2018 7.00h AM")
+         let subdDetail10 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Điểm đến", title2: "Hội An")
+         let subdDetail11 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Giờ đến nơi", title2: "12.00h AM")
+         let subdDetail12 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Hoạt động", title2: "Nghỉ ngơi")
+         let subdDetail13 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Hoạt Động", title2: "Ăn uống vui trơi")
+         let subdDetail14 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "800 Km")
+         let subdDetail15 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "900 Km")
+         let subdDetail16 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "1000 Km")
+         let subdDetail17 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "2000 Km")
+         let subdDetail18 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "3000 Km")
+         let subdDetail19 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "4000 Km")
+         let subdDetail20 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "5000 Km")
+         let subdDetail21 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "6000 Km")
+         let subdDetail22 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "7000 Km")
+         let subdDetail23 = DetailTrip(thumbnail: "http://static.asiawebdirect.com/m/bangkok/portals/vietnam/homepage/mui-ne/top10/10-phan-thiet-attractions/pagePropertiesImage/mui-ne-beach.jpg", title1: "Quãng đường", title2: "8000 Km")
+        arrSub = [subDetail1, subDetail2, subDetail3, subDetail4, subDetail5, subdDetail6, subdDetail7, subdDetail8, subdDetail9, subdDetail10, subdDetail11, subdDetail12,subdDetail13 ,subdDetail14 ,subdDetail15,subdDetail16 ,subdDetail17 ,subdDetail18,subdDetail19 ,subdDetail20 ,subdDetail21 ,subdDetail22 ,subdDetail23]
     }
 }
 
