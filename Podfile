@@ -16,5 +16,6 @@ pod 'FBSDKShareKit'
 pod 'SDWebImage', '~>3.8'
 pod 'Reusable', '~>4.0.2'
 pod 'SVProgressHUD'
+pod 'ParallaxHeader', '~> 2.0.0'
 
 end
