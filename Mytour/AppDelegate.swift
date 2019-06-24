@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import FBSDKLoginKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,10 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Override point for customization after application launch.
-        let accessToken = UserDefaults.standard.object(forKey: "token")
-        if accessToken != nil {
-            self.window?.rootViewController = RootMainController.sharedInstance
-        }
+//        let accessToken = UserDefaults.standard.object(forKey: "token")
+//        if accessToken != nil {
+//            self.window?.rootViewController = RootMainController.sharedInstance
+//        }
         
         FirebaseApp.configure()
         ApplicationDelegate
@@ -38,6 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            // maybe do something here
 //        })
 //        window!.makeKeyAndVisible()
+        
+        if AccessToken.current != nil {
+            self.window?.rootViewController = RootMainController.sharedInstance
+            self.window?.makeKeyAndVisible()
+            
+        }
         return true
     }
     

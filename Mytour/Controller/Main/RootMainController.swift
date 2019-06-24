@@ -14,7 +14,7 @@ class RootMainController: UINavigationController {
 //        let instance = RootMainController.init(rootViewController: mainTabBarController)
         
         let sb = UIStoryboard(name: "Login", bundle: nil)
-        let screenTab = sb.instantiateViewController(withIdentifier: "TabViewController") as! UITabBarController
+        let screenTab = sb.instantiateViewController(withIdentifier: "TabViewController") as! TripTabbarController
         let instance = RootMainController.init(rootViewController: screenTab)
         return instance
         

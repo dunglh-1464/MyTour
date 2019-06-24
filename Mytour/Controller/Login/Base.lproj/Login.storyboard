@@ -82,6 +82,7 @@
                             <constraint firstItem="Ww3-65-9mO" firstAttribute="leading" secondItem="WJD-bZ-mXh" secondAttribute="leading" id="uty-e3-MCl"/>
                             <constraint firstItem="Ww3-65-9mO" firstAttribute="top" secondItem="WJD-bZ-mXh" secondAttribute="top" id="xcD-Rk-gIu"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="RkX-cD-3T1"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="INBOX" image="tabbar-inbox-un-selected" badgeValue="9" selectedImage="tabbar-inbox-un-selected" id="26K-Ym-Qld"/>
                 </viewController>
@@ -107,6 +108,7 @@
                             <constraint firstAttribute="trailing" secondItem="2sS-9B-LSG" secondAttribute="trailing" id="LJY-gD-8Li"/>
                             <constraint firstItem="2sS-9B-LSG" firstAttribute="top" secondItem="Jk7-0P-4BW" secondAttribute="top" id="Ls3-RG-zHV"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="a4o-wM-Tt6"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="3" title="NOTIFICATION" image="tabbar-noti-un-selected" badgeValue="8" selectedImage="tabbar-noti-un-selected" id="s4K-Tp-9Ke"/>
                 </viewController>
@@ -165,6 +167,7 @@
                             <constraint firstItem="KTG-aU-b7Y" firstAttribute="top" secondItem="GWD-ti-u9o" secondAttribute="top" id="qct-lA-UsV"/>
                             <constraint firstAttribute="bottom" secondItem="KTG-aU-b7Y" secondAttribute="bottom" id="xdk-bF-aXi"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="XqQ-tp-Htm"/>
                     </view>
                     <tabBarItem key="tabBarItem" tag="4" title="PROFILE" image="tabbar-profile-un-selected" selectedImage="tabbar-profile-un-selected" id="3Nz-41-xcw"/>
                 </viewController>
