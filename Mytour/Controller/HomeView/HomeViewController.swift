@@ -15,6 +15,8 @@ class HomeViewController: UIViewController {
     @IBOutlet private weak var textFieldSearch: UITextField!
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var viewInputSearch: UIView!
+    @IBOutlet private weak var scrollView: UIScrollView!
+
     
     // MARK: - PROPERTY
     
@@ -35,7 +37,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         tabBarController?.delegate = self
         setupViews()
-        controller = HomeController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip)
+        controller = HomeController(tableView: tableView, textField: textFieldSearch, arrTrip: arrTrip, scrollView: scrollView)
         hideKeyboard()
         controller?.clickDetail = {(detailTrip: Trip) in
 //            let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
