@@ -11,12 +11,12 @@ import UIKit
 
 extension String {
     static func compareWithTheUpcommingDay(startString: String) -> Bool {
+        guard let startDate = startString.stringToDate() else {
+            return false
+        }
         let currentDate = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-dd-MM"
-        let currentString = formatter.string(from: currentDate)
         
-        if startString > currentString {
+        if startDate > currentDate {
             return true
         }
         return false
@@ -33,6 +33,12 @@ extension String {
             return true
         }
         return false
+    }
+    
+    func stringToDate() -> Date? {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-dd-MM"
+        return formatter.date(from: self)
     }
     
 }

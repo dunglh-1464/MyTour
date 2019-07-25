@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FAF0A5622A6019A004BEDF2"
+               BlueprintIdentifier = "6F8BFFEE22E8BFF500DAAA49"
                BuildableName = "MytourTests.xctest"
                BlueprintName = "MytourTests"
                ReferencedContainer = "container:Mytour.xcodeproj">
@@ -42,9 +42,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6FAF0A6122A6019A004BEDF2"
+               BlueprintIdentifier = "6F8BFFFC22E8C03A00DAAA49"
                BuildableName = "MytourUITests.xctest"
                BlueprintName = "MytourUITests"
+               ReferencedContainer = "container:Mytour.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6F8B000A22E8C08700DAAA49"
+               BuildableName = "MytourUnitTests.xctest"
+               BlueprintName = "MytourUnitTests"
                ReferencedContainer = "container:Mytour.xcodeproj">
             </BuildableReference>
          </TestableReference>

@@ -42,7 +42,10 @@ extension Trip {
         let name = dictionary["name"] as? String,
         let start = dictionary["start"] as? Timestamp,
         let thumbnail = dictionary["thumbnail"] as? String
-            else {return nil}
+            else {
+                return nil
+                
+        }
         self.init(name: name, thumbnail: thumbnail, id: id, start: start  , end: end )
     }
 }

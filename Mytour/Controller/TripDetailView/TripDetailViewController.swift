@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ParallaxHeader
+//import ParallaxHeader
 
 
 
@@ -51,21 +51,21 @@ private extension TripDetailViewController {
         
         headerImageView = imageView
         
-        tableView.parallaxHeader.view = imageView
-        tableView.parallaxHeader.height = 300
-        tableView.parallaxHeader.minimumHeight = 20
-        tableView.parallaxHeader.mode = .fill
-        tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
-            print(parallaxHeader.progress)
-        }
+//        tableView.parallaxHeader.view = imageView
+//        tableView.parallaxHeader.height = 300
+//        tableView.parallaxHeader.minimumHeight = 20
+//        tableView.parallaxHeader.mode = .fill
+//        tableView.parallaxHeader.parallaxHeaderDidScrollHandler = { parallaxHeader in
+//            print(parallaxHeader.progress)
+//        }
     }
     
     func setupNav()  {
-        navBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: ViewManager.screenWidth(), height: 44))
+        navBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: ViewManager.screenWidth(), height: 100))
         self.view.addSubview(navBar!)
         navBar!.barTintColor = .white
         navBar!.backgroundColor = ViewManager.blueCol
-        navBar?.pushItem(navItem, animated: true)
+        navBar?.pushItem(navItem, animated: false)
         navBar?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ViewManager.blueCol, NSAttributedString.Key.font: UIFont(name: "HiraKakuPro-W6", size: 16)! ]
         navBar!.isTranslucent=false
         
